@@ -79,7 +79,11 @@ else:
 	text_type = unicode
 	binary_type = str
 
-from xmlrpclib_to import ServerProxy
+#xmlrpc handling                                                                   
+try:                                                                     
+    from xmlrpc.client import ServerProxy                                     
+except ImportError:                                                                 
+    from xmlrpclib import ServerProxy
 import shlex
 
 # Exit codes used by NZBGet
