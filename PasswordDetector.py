@@ -37,7 +37,7 @@
 # http://nzbget.net/forum/viewtopic.php?f=8&t=1391
 #
 #
-# PP-Script version: 1.8.
+# PP-Script version: 1.9.
 #
 # NOTE: This script requires Python to be installed on your system.
 #
@@ -79,7 +79,12 @@ else:
 	text_type = unicode
 	binary_type = str
 
-from xmlrpclib_to import ServerProxy
+#xmlrpc handling                                                                   
+try:                                                                     
+    from xmlrpc.client import ServerProxy                                     
+except ImportError:                                                                 
+    from xmlrpclib import ServerProxy import shlex
+
 import shlex
 
 # Exit codes used by NZBGet
